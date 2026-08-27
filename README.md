@@ -1,15 +1,28 @@
-# Functional company repository template
+# Dirtyworks.ai company repository
 
-**Repository role:** authoritative company knowledge and operating system  
-**Status:** Empty candidate shell  
+**Repository role:** authoritative company knowledge and operating system
+
+**Status:** Active functional company system
+
 **Excludes:** application code, tool codebases, client-specific records, secrets and restricted source records
 
 This repository is organized by stable company function. Document type, status, authority and sensitivity belong in document metadata rather than in the folder path.
 
+## Start here
+
+1. [Company documentation index](01-governance/company/company-documentation-index.md) — detailed reading order, authority rules and current company-building state.
+2. [Master business strategy](02-strategy-and-research/company-strategy/business-strategy.md) — choices, boundaries, goals and hypotheses.
+3. [Execution roadmap](02-strategy-and-research/roadmaps/execution-roadmap.md) — phases, evidence gates and stop conditions.
+4. [Implementation backlog](01-governance/planning/implementation-backlog.md) — prioritized current work.
+5. [Company-building log](01-governance/planning/company-building-log.md) — decisions, assumptions, questions and blockers.
+6. [Business scorecard](01-governance/planning/business-scorecard.md) — company operating measures.
+
+Brand and production assets are governed through the [marketing and brand area](04-marketing-and-brand/) and [PROOF / WORK production guide](04-marketing-and-brand/design-system/production-guide.md). Application implementation remains in separate application repositories.
+
 ## Structure
 
 ```text
-company/
+dirtyworks-company/
 ├── README.md
 ├── _system/
 │   ├── documentation-policy.md
@@ -68,4 +81,3 @@ company/
 ## Navigation
 
 Each numbered area contains a local README defining its scope. `_system/` governs the repository itself. `80-initiatives/` contains temporary initiative coordination, while durable outputs move to the functional area that owns them.
-

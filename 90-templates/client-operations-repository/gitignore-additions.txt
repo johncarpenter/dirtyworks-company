@@ -1,0 +1,23 @@
+# kgmd derived state contains client information but is rebuildable.
+.kgmd/graph.db
+.kgmd/*.db-shm
+.kgmd/*.db-wal
+
+# Internal-interface indexes, caches and sessions are rebuildable.
+.dirtyworks/cache/
+.dirtyworks/index/
+.dirtyworks/sessions/
+
+# Drop-zone and quarantine content must be classified before registration.
+inbox/
+quarantine/
+
+# Secrets and local environment state never enter the repository.
+.env
+.env.*
+!.env.example
+credentials/
+*token*.json
+*.pem
+*.key
+*.p12

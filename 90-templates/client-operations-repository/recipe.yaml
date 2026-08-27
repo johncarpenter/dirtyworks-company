@@ -1,0 +1,5 @@
+schema_version: "1"
+name: dirtyworks-client-operations
+version: "1"
+description: "Private managed AI client operations: findings, requirements, services, products, access, runbooks, training, cost, risks, decisions, changes, incidents, reviews, people, organizations, and sources."
+

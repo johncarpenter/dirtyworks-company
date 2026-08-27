@@ -1,0 +1,30 @@
+# Current kgmd scopes to wiki/ with this setting but does not yet exclude personal-wiki's
+# generated index.md/log.md or parse frontmatter/declared relationships deterministically.
+# The Dirtyworks repository wrapper must apply those filters/adapters before production.
+corpus:
+  include:
+    - wiki
+embedding:
+  backend: fastembed
+  model: BAAI/bge-small-en-v1.5
+llm:
+  model: <client-approved-provider-and-model>
+  temperature: 0.0
+  max_tokens: 16384
+  timeout_seconds: 120
+  concurrency: 2
+chunking:
+  max_chars: 4000
+  overlap_chars: 200
+  split_on: heading
+extraction:
+  max_entities_per_chunk: 30
+  max_relations_per_chunk: 30
+  retry_on_parse_failure: 2
+resolution:
+  similarity_threshold: 0.88
+  llm_verify_clusters: true
+  max_cluster_size: 10
+induction:
+  include_attribute_summary: true
+  hierarchy_depth: 3

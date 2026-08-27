@@ -1,0 +1,141 @@
+schema_version: "2"
+page_types:
+  - name: account
+    authorship: authored
+    required_sections: [Overview, Operating Boundary, Relationships]
+    suggested_sections: [Overview, Operating Boundary, Relationships, System References, Open Conditions, Evidence]
+    allowed_statuses: [onboarding, active, suspended, offboarding, closed]
+    naming_rule: account-<client-id>, lowercase and hyphenated.
+    review_rule: Review monthly and after a material scope, owner, system, or risk change.
+    expects_inbound_links: false
+    context_weight: 9
+  - name: requirement
+    authorship: authored
+    required_sections: [Requirement, Acceptance, Relationships, Evidence]
+    suggested_sections: [Requirement, Acceptance, Relationships, Interpretation, Conflict, Verification, Evidence]
+    allowed_statuses: [proposed, accepted, satisfied, waived, superseded]
+    naming_rule: requirement-<short-topic>, lowercase and hyphenated.
+    review_rule: Review before acceptance, at the linked control date, and when its evidence changes.
+    context_weight: 9
+  - name: finding
+    authorship: synthesized
+    required_sections: [Finding, Proposed Record, Conflicts and Gaps, Relationships, Evidence]
+    suggested_sections: [Interpretation]
+    allowed_statuses: [proposed, reviewed, promoted, rejected, superseded]
+    naming_rule: finding-<short-topic>-<source-or-date>, lowercase and hyphenated.
+    review_rule: Review after ingestion; promote, reject, or supersede before relying on it operationally.
+    context_weight: 8
+  - name: service
+    authorship: authored
+    required_sections: [Scope, Responsibilities, Service Targets, Relationships, Evidence]
+    suggested_sections: [Scope, Responsibilities, Service Targets, Relationships, Exclusions, Customer Dependencies, Acceptance, Offboarding, Evidence]
+    allowed_statuses: [proposed, onboarding, active, suspended, offboarding, closed]
+    naming_rule: service-<short-name>, lowercase and hyphenated.
+    review_rule: Review monthly, at renewal, and after a material scope or responsibility change.
+    context_weight: 8
+  - name: product
+    authorship: authored
+    required_sections: [Product Record, Administration, Cost and Renewal, Exit, Relationships, Evidence]
+    suggested_sections: [Product Record, Administration, Cost and Renewal, Exit, Relationships, Data and Security, Configuration Baseline, Support, Evidence]
+    allowed_statuses: [assessing, planned, active, suspended, retired]
+    naming_rule: product-<vendor-or-product>-<tenant-purpose>, lowercase and hyphenated.
+    review_rule: Review monthly for cost and quarterly for administration, terms, data, and exit.
+    context_weight: 8
+  - name: access
+    authorship: authored
+    required_sections: [Access Record, Approval, Verification, Revocation, Relationships, Evidence]
+    suggested_sections: [Access Record, Approval, Verification, Revocation, Relationships, Exception, Evidence]
+    allowed_statuses: [requested, approved, active, review-due, revoked, expired]
+    naming_rule: access-<identity-or-role>-<product>, lowercase and hyphenated without a secret.
+    review_rule: Review at the recorded date, role change, incident, or customer offboarding.
+    context_weight: 8
+  - name: process
+    authorship: authored
+    required_sections: [Purpose, Authority, Procedure, Verification, Exception and Escalation, Records Updated, Relationships, Evidence]
+    suggested_sections: [Purpose, Authority, Prerequisites, Procedure, Verification, Exception and Escalation, Rollback or Containment, Records Updated, Relationships, Evidence]
+    allowed_statuses: [draft, active, suspended, retired]
+    naming_rule: process-<short-name>, lowercase and hyphenated.
+    review_rule: Review after execution failure, material platform change, incident, or at least quarterly while active.
+    context_weight: 8
+  - name: training
+    authorship: authored
+    required_sections: [Training Record, Audience, Material, Completion, Follow-up, Relationships, Evidence]
+    suggested_sections: [Training Record, Audience, Material, Completion, Follow-up, Relationships, Feedback, Evidence]
+    allowed_statuses: [planned, scheduled, delivered, cancelled, superseded]
+    naming_rule: training-<topic>-<date-or-version>, lowercase and hyphenated.
+    review_rule: Review after delivery and when product, policy, or material changes.
+    context_weight: 5
+  - name: cost
+    authorship: authored
+    required_sections: [Cost Record, Reconciliation, Variance and Action, Relationships, Evidence]
+    suggested_sections: [Cost Record, Reconciliation, Variance and Action, Relationships, Forecast, Optimization, Evidence]
+    allowed_statuses: [current, review-due, disputed, corrected, closed]
+    naming_rule: cost-<product-or-portfolio>-<period>, lowercase and hyphenated.
+    review_rule: Review at monthly close and when an invoice, usage value, or contract changes.
+    context_weight: 7
+  - name: risk
+    authorship: authored
+    required_sections: [Risk, Consequence, Control, Decision, Relationships, Evidence]
+    suggested_sections: [Risk, Consequence, Control, Decision, Relationships, Trigger, Residual Risk, Evidence]
+    allowed_statuses: [open, accepted, mitigating, closed, expired]
+    naming_rule: risk-<short-topic>, lowercase and hyphenated.
+    review_rule: Review at expiry, before release, after incident, and when consequence or control changes.
+    context_weight: 8
+  - name: decision
+    authorship: authored
+    required_sections: [Decision, Reason, Alternatives, Consequences, Relationships, Evidence]
+    suggested_sections: [Decision, Reason, Alternatives, Consequences, Relationships, Revisit Trigger, Evidence]
+    allowed_statuses: [proposed, approved, superseded, withdrawn]
+    naming_rule: decision-<short-topic>, lowercase and hyphenated.
+    review_rule: Review when evidence, assumptions, contract, owner, or dependent system changes.
+    context_weight: 8
+  - name: change
+    authorship: authored
+    required_sections: [Change, Authority, Implementation, Verification, Rollback, Relationships, Evidence]
+    suggested_sections: [Change, Authority, Implementation, Verification, Rollback, Relationships, Risk, Customer Communication, Evidence]
+    allowed_statuses: [requested, approved, scheduled, implemented, failed, rolled-back, closed]
+    naming_rule: change-<short-topic>-<date>, lowercase and hyphenated.
+    review_rule: Review at implementation, verification, closure, failure, or rollback.
+    context_weight: 7
+  - name: incident
+    authorship: authored
+    required_sections: [Detection, Impact, Containment, Timeline, Cause, Corrective Action, Relationships, Evidence]
+    suggested_sections: [Detection, Impact, Containment, Timeline, Cause, Corrective Action, Relationships, Customer Communication, Recurrence Prevention, Evidence]
+    allowed_statuses: [open, contained, monitoring, resolved, closed]
+    naming_rule: incident-<client-id>-<date>-<short-topic>, lowercase and hyphenated without sensitive detail.
+    review_rule: Review at every material state change and at closure.
+    context_weight: 9
+  - name: review
+    authorship: authored
+    required_sections: [Review, Findings, Decisions, Actions, Relationships, Evidence]
+    suggested_sections: [Review, Findings, Decisions, Actions, Relationships, Metrics, Exceptions, Evidence]
+    allowed_statuses: [planned, active, complete, superseded]
+    naming_rule: review-<kind>-<period>, lowercase and hyphenated.
+    review_rule: Review at completion and when a recorded decision or action changes materially.
+    context_weight: 7
+  - name: person
+    authorship: authored
+    required_sections: []
+    suggested_sections: [Role and Authority, Contact, Relationships, Notes]
+    allowed_statuses: [active, inactive, archived]
+    naming_rule: person-<given>-<family>, lowercase and hyphenated.
+    review_rule: Review after role/contact change and at account review.
+    context_weight: 4
+  - name: organization
+    authorship: authored
+    required_sections: []
+    suggested_sections: [Relationship, Authority, Support, Notes]
+    allowed_statuses: [active, inactive, archived]
+    naming_rule: org-<name>, lowercase and hyphenated.
+    review_rule: Review after relationship/authority change and at account review.
+    context_weight: 4
+  - name: source
+    required_sections: [Summary, Evidence]
+    suggested_sections: [Operational Implications, Contradictions, Notes]
+    allowed_statuses: [active, restricted, superseded, archived]
+    naming_rule: Use the stable source identifier.
+    review_rule: Review when superseded, expired, restricted, or subject to retention/deletion action.
+    expects_inbound_links: false
+    context_weight: 2
+material_labels: [inference, uncertainty, contradiction, open question, open_question]
+max_page_characters: 100000
